@@ -1,0 +1,49 @@
+.header {
+  display: grid;
+  grid-template-columns: .25fr 1fr .25fr;
+  grid-template-rows: 1fr 1fr;
+  grid-template-areas:
+    ". header date"
+    ". header date";
+  
+  .headings {
+    grid-area: header;
+    text-align: center;
+    position: relative;
+
+    & > textarea {
+      width: 100%;
+      text-align: center;
+      padding: .25em;
+      resize: none;
+      white-space: pre-wrap;
+      word-break: break-word;
+      overflow-wrap: break-word;
+    }
+  }
+
+  & .title {
+    font-size: 2rem;
+  }
+}
+
+.date {
+  grid-area: date;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+
+  & > span {
+    display: block;
+    width: 50%;
+    padding: .25em;
+    border: 1px solid black;
+
+    &:first-of-type {
+      border-bottom: none;
+    }
+  }
+}

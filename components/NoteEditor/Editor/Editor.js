@@ -1,20 +1,27 @@
+import { useState } from 'react';
+
+import styles from './Editor.module.scss';
 import Section from './Section'
+import Heading from './Heading';
 
 function formatDate(dateObj) {
   return new Intl.DateTimeFormat('en-US', { month: 'short', day: 'numeric' }).format(dateObj)
 }
 
 export default function Editor() {
-  const formatedDate = formatDate(new Date()).split(' ')
+  const [title, setTitle] = useState('');
+  const [description, setDescription] = useState('');
+
+  const formatedDate = formatDate(new Date()).split(' ');
 
   return (
     <div className="editor">
-      <header>
-        <hgroup>
-          <h1 name="title" id="note-title" contentEditable></h1>
-          <h3 name="description" id="note-description" contentEditable></h3>
-        </hgroup>
-        <div className="date">
+      <header className={styles.header}>
+        <div className={styles.headings}>
+          <Heading name="title" placeholder="Title" value={title} setValue={setTitle} />
+          <Heading name="description" placeholder="Note description" value={description} setValue={setDescription} />
+        </div>
+        <div className={styles.date}>
           <span className="note-month">{ formatedDate[0] }</span>
           <span className="note-day">{ formatedDate[1] }</span>
         </div>
