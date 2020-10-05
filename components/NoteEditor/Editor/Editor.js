@@ -1,3 +1,5 @@
+import Section from './Section'
+
 function formatDate(dateObj) {
   return new Intl.DateTimeFormat('en-US', { month: 'short', day: 'numeric' }).format(dateObj)
 }
@@ -18,8 +20,12 @@ export default function Editor() {
         </div>
       </header>
       <section className="note-body">
-        <div className="keyword" contentEditable></div>
-        <div className="content" contentEditable></div>
+        <Section />
+        <div className="add-section">
+          <button type="button">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M24 10h-10v-10h-4v10h-10v4h10v10h4v-10h10z"/></svg>
+          </button>
+        </div>
       </section>
       <section className="note-summary">
         <div id="summary" className="editable" contentEditable></div>
