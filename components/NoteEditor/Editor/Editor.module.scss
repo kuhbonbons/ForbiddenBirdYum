@@ -1,9 +1,7 @@
 .header {
   display: grid;
   grid-template-columns: .25fr 1fr .25fr;
-  grid-template-rows: 1fr 1fr;
   grid-template-areas:
-    ". header date"
     ". header date";
   
   .headings {
@@ -19,11 +17,14 @@
       white-space: pre-wrap;
       word-break: break-word;
       overflow-wrap: break-word;
-    }
-  }
+      overflow: hidden;
+      line-height: 1.2;
+      border: none;
 
-  & .title {
-    font-size: 2rem;
+      &.title {
+        font-size: 2rem;
+      }
+    }
   }
 }
 
