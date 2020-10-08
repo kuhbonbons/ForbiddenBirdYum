@@ -1,5 +1,6 @@
 import '../styles/globals.scss';
 import '../styles/_resets.scss';
+import App from 'next/app';
 import { parseCookies, setCookie } from 'nookies';
 import fetch from 'isomorphic-fetch';
 import jwt from 'jsonwebtoken';
@@ -42,8 +43,10 @@ MyApp.getInitialProps = async (rootctx) => {
   }
 
   const user = jwt.decode(token);
+  const appProps = await App.getInitialProps(rootctx);
   if (user) {
     return {
+      ...appProps,
       session: {
         id: user.id,
         email: user.email,
@@ -51,7 +54,7 @@ MyApp.getInitialProps = async (rootctx) => {
       },
     };
   }
-  return {};
+  return { ...appProps };
 };
 
 export default MyApp;

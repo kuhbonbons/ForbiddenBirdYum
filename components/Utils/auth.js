@@ -8,11 +8,11 @@ const redirect = (res, url) => {
   res.end();
 };
 
-const withAuth = (ProtectedComponent) => class Authenticate extends Component {
+const withAuth = (ProtectedComponent) => class extends Component {
   static async getInitialProps(ctx) {
     const cookies = parseCookies(ctx);
     if (!cookies.at) {
-      redirect(ctx.res, 'http://localhost:3000/');
+      redirect(ctx.res, 'http://localhost:3000/login');
     }
     const pageProps = ProtectedComponent.getInitialProps
      && await ProtectedComponent.getInitialProps(ctx);

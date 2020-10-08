@@ -1,4 +1,4 @@
-import { withAuth } from '../components';
+import withAuth from '../components/Utils/auth';
 
 const Notes = withAuth(() => (
   <div>Notes</div>
