@@ -1,0 +1,46 @@
+@import "../../styles/globals";
+
+.form {
+    @include shadow("md");
+    @include rounded("lg");
+    display: flex;
+    flex-direction: column;
+    margin: 100px auto;
+    justify-content: center;
+    align-items: center;
+    padding: 20px 0px;
+    max-width: 550px;
+    font-size: 20px;
+    height: 500px;
+
+    h3 {
+        margin: 0 0 25px 0;
+    }
+    div {
+        width: 70%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+
+    input {
+        font-size: 18px;
+        width: 100%;
+        margin: 10px 0px;
+        height: 35px;
+        text-align: center;
+    }
+
+    button {
+        color: white;
+        background-color: black;
+        letter-spacing: 1px;
+        margin-top: 20px;
+        font-size: 18px;
+        height: 35px;
+        font-weight: 800;
+        width: 100%;
+        cursor: pointer;
+    }
+}
