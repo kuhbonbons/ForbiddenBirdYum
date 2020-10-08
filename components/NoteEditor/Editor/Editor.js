@@ -34,12 +34,33 @@ export default function Editor() {
     }
   };
 
+  const handleInput = (e) => {
+    const { id } = e.currentTarget.parentElement.dataset;
+    const key = (e.currentTarget.classList[0].match(/Editor_content.+/))
+      ? 'content' : 'keyword';
+
+    const updatedSections = sections.map((section) => {
+      if (section.id === id) {
+        const updated = {
+          ...section,
+          [key]: e.currentTarget.innerHTML,
+        };
+
+        return updated;
+      }
+      return section;
+    });
+
+    setSections(updatedSections);
+  };
+
   // eslint-disable-next-line arrow-body-style
   const renderSections = () => sections.map((section) => {
     return (
       <Section
         key={section.id}
         id={section.id}
+        handleInput={handleInput}
         handleRemove={handleRemoveSection}
       />
     );
