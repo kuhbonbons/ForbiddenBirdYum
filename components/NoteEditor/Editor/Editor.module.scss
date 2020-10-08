@@ -60,6 +60,18 @@
     border: 1px solid black;
     min-height: 50px;
   }
+
+  .keyword {
+    color: red;
+  }
+
+  .content {
+    position: relative;
+  }
+
+  .trashcan {
+    position: absolute;
+  }
 }
 
 .wordbreak {

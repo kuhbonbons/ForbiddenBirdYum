@@ -24,7 +24,14 @@ export default function Editor() {
   };
 
   const handleRemoveSection = (e) => {
-    setSections(sections.slice(0, sections.length - 1));
+    const sectionId = e.currentTarget.dataset.target;
+
+    if (sectionId) {
+      const index = sections.findIndex((section) => section.id === sectionId);
+      setSections([...sections.slice(0, index), ...sections.slice(index + 1, sections.length)]);
+    } else {
+      setSections(sections.slice(0, sections.length - 1));
+    }
   };
 
   // eslint-disable-next-line arrow-body-style
