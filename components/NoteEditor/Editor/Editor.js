@@ -8,11 +8,12 @@ function formatDate(dateObj) {
   return new Intl.DateTimeFormat('en-US', { month: 'short', day: 'numeric' }).format(dateObj);
 }
 
+const formatedDate = formatDate(new Date()).split(' ');
+
 export default function Editor() {
   const [title, setTitle] = useState('');
   const [description, setDescription] = useState('');
 
-  const formatedDate = formatDate(new Date()).split(' ');
 
   return (
     <div className="editor">
