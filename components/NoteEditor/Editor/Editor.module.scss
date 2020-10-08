@@ -52,6 +52,16 @@
   }
 }
 
+.section {
+  display: grid;
+  grid-template-columns: minmax(100px, 250px) minmax(400px, 1fr);
+
+  & > div {
+    border: 1px solid black;
+    min-height: 50px;
+  }
+}
+
 .wordbreak {
   white-space: pre-wrap;
   word-break: break-word;
