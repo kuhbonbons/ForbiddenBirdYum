@@ -19,5 +19,11 @@ module.exports = {
     'react',
   ],
   rules: {
+    'react/jsx-uses-react': 1,
+    'react/prop-types': 0,
+    'react/jsx-uses-vars': 1,
+    'react/jsx-filename-extension': 0,
+    'react/react-in-jsx-scope': 0,
+    'react/jsx-props-no-spreading': 0,
   },
 };

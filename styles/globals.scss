@@ -1,1 +1,37 @@
-@use 'resets'
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans&family=Roboto&display=swap');
+
+$shadow-values: (
+  "none": none,
+  "sm": (0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24)),
+  "md": (0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23)),
+  "lg": (0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23)),
+  "xl": (0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22)),
+  "2xl":(0 19px 38px rgba(0,0,0,0.30), 0 15px 12px rgba(0,0,0,0.22))
+);
+
+$rounded-values: (
+    "none": 0px,
+    "sm": 2px,
+    "md": 5px,
+    "lg": 25px,
+    "full": 100%,
+);
+
+@mixin shadow($size) {
+    box-shadow: map-get($shadow-values, $size);
+}
+
+@mixin rounded($size) {
+    border-radius: map-get($rounded-values, $size);
+}
+
+#__next {
+    font-family: 'Roboto', sans-serif;;
+}
+
+
+.formik-error-text {
+    color: rgb(194, 0, 0);
+    font-size: 16px;
+}
