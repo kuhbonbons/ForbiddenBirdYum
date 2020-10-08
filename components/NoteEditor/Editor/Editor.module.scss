@@ -14,9 +14,6 @@
       text-align: center;
       padding: .25em;
       resize: none;
-      white-space: pre-wrap;
-      word-break: break-word;
-      overflow-wrap: break-word;
       overflow: hidden;
       line-height: 1.2;
       border: none;
@@ -47,4 +44,10 @@
       border-bottom: none;
     }
   }
+}
+
+.wordbreak {
+  white-space: pre-wrap;
+  word-break: break-word;
+  overflow-wrap: break-word;
 }

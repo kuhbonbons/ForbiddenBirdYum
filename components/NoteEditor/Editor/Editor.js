@@ -17,7 +17,7 @@ export default function Editor() {
   return (
     <div className="editor">
       <header className={styles.header}>
-        <div className={styles.headings}>
+        <div className={`${styles.headings} ${styles.wordbreak}`}>
           <Heading name="title" placeholder="Title" value={title} setValue={setTitle} />
           <Heading name="description" placeholder="Note description" value={description} setValue={setDescription} />
         </div>
