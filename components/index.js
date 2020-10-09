@@ -1,5 +1,5 @@
-import { NoteEditor } from './NoteEditor'
+import { NoteEditor } from './NoteEditor';
 
 export {
-  NoteEditor
-}
+  NoteEditor,
+};
