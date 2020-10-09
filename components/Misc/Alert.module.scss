@@ -1,28 +1,28 @@
-@import "../../styles/globals.scss";
+@use "../../styles/globals.scss" as g;
 
 .alert {
-    @include rounded("sm");
-    width: 100%;
-    border-width: 1px;
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
-    padding: 5px;
-    margin: 15px;
-    font-size: 18px;
+  @include g.rounded("sm");
+  width: 100%;
+  border-width: 1px;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  padding: 5px;
+  margin: 15px;
+  font-size: 18px;
 }
 
 .alert-error {
-    background-color: rgba($color: red, $alpha: .3);
-    border: 1px solid red;
+  background-color: rgba($color: red, $alpha: 0.3);
+  border: 1px solid red;
 }
 
 .alert-info {
-    background-color: rgba($color: blue, $alpha: .3);
-    border: 1px solid blue;
+  background-color: rgba($color: blue, $alpha: 0.3);
+  border: 1px solid blue;
 }
 
 .alert-icon {
-    margin-right: 10px;
+  margin-right: 10px;
 }
