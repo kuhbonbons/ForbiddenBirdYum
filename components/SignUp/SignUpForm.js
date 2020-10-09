@@ -4,19 +4,19 @@ import {
 import fetch from 'isomorphic-fetch';
 import { useState } from 'react';
 import Alert from '../Misc/Alert';
-import { LoginSchema } from '../../schemas';
+import { SignUpSchema } from '../../schemas';
 
 const { NEXT_PUBLIC_API_URL } = process.env;
 
-const LoginForm = () => {
+const SignUpForm = () => {
   const [apiError, setApiError] = useState(null);
   return (
     <Formik
-      initialValues={{ username: '', password: '' }}
-      validationSchema={LoginSchema}
+      initialValues={{ username: '', password: '', email: '' }}
+      validationSchema={SignUpSchema}
       onSubmit={async (values) => {
         try {
-          const response = await fetch(`${NEXT_PUBLIC_API_URL}/login`, {
+          const response = await fetch(`${NEXT_PUBLIC_API_URL}/signup`, {
             method: 'POST',
             credentials: 'include',
             mode: 'cors',
@@ -25,10 +25,11 @@ const LoginForm = () => {
             },
             body: JSON.stringify(values),
           });
+
           if (!response.ok) {
             throw await response.json();
           }
-          window.location.replace('http://localhost:3000/');
+          window.location.replace('http://localhost:3000/login');
         } catch (error) {
           setApiError(error.message);
         }
@@ -38,8 +39,13 @@ const LoginForm = () => {
         const isValid = !Object.keys(errors).length;
         return (
           <Form className="form">
-            <h3 className="form-title">Log into your account.</h3>
+            <h3 className="form-title">Welcome to FBY.</h3>
             {apiError && <Alert type="error" message={apiError} />}
+            <div className="form-items">
+              <span>E-Mail</span>
+              <ErrorMessage name="email">{ (msg) => <span className="formik-error-text">{msg}</span>}</ErrorMessage>
+              <Field className="form-inputs" placeholder="Enter your email" type="email" name="email" />
+            </div>
             <div className="form-items">
               <span>Username</span>
               <ErrorMessage name="username">{ (msg) => <span className="formik-error-text">{msg}</span>}</ErrorMessage>
@@ -59,5 +65,4 @@ const LoginForm = () => {
     </Formik>
   );
 };
-
-export default LoginForm;
+export default SignUpForm;
