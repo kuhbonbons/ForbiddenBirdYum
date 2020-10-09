@@ -1,3 +1,7 @@
+.editor {
+  padding: .5em;
+}
+
 .header {
   display: grid;
   grid-template-columns: .25fr 1fr .25fr;
@@ -56,14 +60,17 @@
   display: grid;
   grid-template-columns: minmax(100px, 250px) minmax(400px, 1fr);
   position: relative;
+  margin-bottom: .5em;
 
   & > .keyword,.content {
-    border: 1px solid black;
     min-height: 50px;
+    padding: .5em;
   }
 
   .keyword {
-    color: red;
+    border-right: 1px solid lightgray;
+    text-align: center;
+    font-size: 1.2rem;
   }
 
   .content {
@@ -84,6 +91,13 @@
 }
 
 .body {
+  margin-top: .75em;
+
+  & > .section {
+    border: 1px solid lightgray;
+    border-radius: .25em;
+  }
+
   .section-controls {
     display: flex;
     justify-content: center;
@@ -101,6 +115,13 @@
       border-radius: .25em;
     }
   }
+}
+
+.summary {
+  border: 1px solid lightgray;
+  min-height: 50px;
+  border-radius: .25em;
+  padding: .5em;
 }
 
 .wordbreak {
