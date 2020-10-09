@@ -17,6 +17,7 @@ export default function Editor() {
   const [title, setTitle] = useState('');
   const [description, setDescription] = useState('');
   const [sections, setSections] = useState([{ id: shortid.generate(), keyword: '', content: '' }]);
+  const [summary, setSummary] = useState('');
 
   const handleAddSection = () => {
     const newSection = { id: shortid.generate(), keyword: '', content: '' };
@@ -52,6 +53,10 @@ export default function Editor() {
     });
 
     setSections(updatedSections);
+  };
+
+  const handleSummary = (e) => {
+    setSummary(e.currentTarget.innerHTML);
   };
 
   // eslint-disable-next-line arrow-body-style
@@ -92,7 +97,7 @@ export default function Editor() {
         </div>
       </section>
       <section className="note-summary">
-        <div id="summary" className="editable" contentEditable />
+        <div className={styles.summary} onInput={handleSummary} contentEditable />
       </section>
     </div>
   );
