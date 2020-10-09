@@ -85,15 +85,13 @@ export default function Editor() {
           <span className="note-day">{ formatedDate[1] }</span>
         </div>
       </header>
-      <section className="note-body">
+      <section className={styles.body}>
         { renderSections() }
-        <div className="add-section">
-          <button type="button" onClick={handleAddSection}>
+        <div className={styles['section-controls']}>
+          <button type="button" className={styles.control} onClick={handleAddSection}>
             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M24 10h-10v-10h-4v10h-10v4h10v10h4v-10h10z" /></svg>
           </button>
-        </div>
-        <div className="remove-section">
-          <button type="button" onClick={handleRemoveSection}>
+          <button type="button" className={styles.control} onClick={handleRemoveSection}>
             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M0 10h24v4h-24z" /></svg>
           </button>
         </div>
