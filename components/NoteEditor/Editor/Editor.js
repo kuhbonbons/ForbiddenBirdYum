@@ -27,6 +27,8 @@ export default function Editor() {
   const handleRemoveSection = (e) => {
     const sectionId = e.currentTarget.dataset.target;
 
+    if (sections.length === 1) return;
+
     if (sectionId) {
       const index = sections.findIndex((section) => section.id === sectionId);
       setSections([...sections.slice(0, index), ...sections.slice(index + 1, sections.length)]);
