@@ -32,13 +32,13 @@ $rounded-values: (
     border-radius: map-get($rounded-values, $size);
 }
 
-@mixin flex-row {
+@mixin flex-row-center {
     display: flex;
     justify-content: center;
     align-items: center;
 }
 
-@mixin flex-column {
+@mixin flex-col-center {
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -57,7 +57,7 @@ $rounded-values: (
 .form {
     @include shadow("md");
     @include rounded("lg");
-    @include flex-column;
+    @include flex-col-center;
     height: 550px;
     max-width: 550px;
     margin: 6.25rem auto;
@@ -71,7 +71,7 @@ $rounded-values: (
     .form-items {
         width: 70%;
         letter-spacing: $spacing;
-        @include flex-column;
+        @include flex-col-center;
     }
 
     .form-inputs {
