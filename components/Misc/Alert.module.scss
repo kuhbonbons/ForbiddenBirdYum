@@ -1,20 +1,19 @@
 @use "../../styles/globals.scss" as g;
 
 .alert {
-  @include g.rounded("sm");
+  @include g.rounded("md");
+  @include g.flex-row;
   width: 100%;
-  border-width: 1px;
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  align-items: center;
-  padding: 5px;
-  margin: 15px;
-  font-size: 18px;
+  padding: 0.3rem;
+  margin: 0.9rem;
+  font: {
+      size: 1.1rem;
+      weight: 700;
+  }
 }
 
 .alert-error {
-  background-color: rgba($color: red, $alpha: 0.3);
+  background-color: rgba($color: red, $alpha: 0.6);
   border: 1px solid red;
 }
 
@@ -24,5 +23,5 @@
 }
 
 .alert-icon {
-  margin-right: 10px;
+  margin-right: 0.6rem;
 }
