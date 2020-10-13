@@ -21,7 +21,7 @@ export default function Editor() {
 
   const handleAddSection = () => {
     const newSection = { id: shortid.generate(), keyword: '', content: '' };
-    setSections(sections.concat(newSection));
+    setSections([...sections, newSection]);
   };
 
   const handleRemoveSection = (e) => {
