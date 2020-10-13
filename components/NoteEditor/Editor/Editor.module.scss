@@ -1,5 +1,30 @@
+/* VARIABLES */
+$border: 1px solid lightgray;
+$radius: .25em;
+
+/* MIXINS */
+@mixin border {
+  border: $border;
+  border-radius: $radius;
+}
+
+@mixin for-mobile {
+  @media only screen and (max-width: 576px) {
+    @content;
+  }
+}
+
+/* Only used for date span width */
+@mixin for-big-mobile {
+  @media only screen and (min-width: 456px) and (max-width: 576px) {
+    @content;
+  }
+}
+
 .editor {
   padding: .5em;
+  max-width: 1140px;
+  margin: 0 auto;
 }
 
 .header {
@@ -12,7 +37,7 @@
     grid-area: header;
     text-align: center;
     position: relative;
-
+    
     & > textarea {
       width: 100%;
       text-align: center;
@@ -25,10 +50,17 @@
       &.title {
         font-size: 2rem;
         font-weight: bold;
+        @include for-mobile {
+          font-size: 1.6rem;
+          margin-top: .4em;
+        }
       }
 
       &.description {
         font-size: 1.25rem;
+        @include for-mobile {
+          font-size: 1rem;
+        }
       }
     }
   }
@@ -36,19 +68,32 @@
 
 .date {
   grid-area: date;
-  height: 100%;
+  /* height: 100%; */
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   text-align: center;
+  @include for-mobile {
+    flex-direction: row;
+    align-items: flex-start;
+    justify-content: flex-end;
+  }
   
   & > span {
     display: block;
     width: 50%;
     max-width: 80px;
     padding: .25em;
-    border: 1px solid black;
+    border: $border;
+    @include for-mobile {
+      width: 44%;
+      border: none;
+    }
+    @include for-big-mobile {
+      width: 35%;
+      border: none;
+    }
 
     &:first-of-type {
       border-bottom: none;
@@ -61,6 +106,10 @@
   grid-template-columns: minmax(100px, 250px) minmax(400px, 1fr);
   position: relative;
   margin-bottom: .5em;
+  @include for-mobile {
+    display: block;
+    margin-bottom: 1em;
+  }
 
   & > .keyword,.content {
     min-height: 50px;
@@ -68,13 +117,23 @@
   }
 
   .keyword {
-    border-right: 1px solid lightgray;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     text-align: center;
     font-size: 1.2rem;
+    border-right: $border;
+    @include for-mobile {
+      border-bottom: $border;
+      border-right: none;
+    }
   }
 
   .content {
     color: black;
+    @include for-mobile {
+      min-height: 100px;
+    }
   }
 
   .trashcan {
@@ -84,44 +143,45 @@
 
     & > button {
       padding: .25em;
-      border: 1px solid lightgray;
-      border-radius: .25em;
+      @include border;
     }
   }
 }
 
 .body {
   margin-top: .75em;
+  @include for-mobile {
+    margin-top: .4em;
+  }
 
   & > .section {
-    border: 1px solid lightgray;
-    border-radius: .25em;
+    @include border;
   }
 
   .section-controls {
     display: flex;
     justify-content: center;
     align-items: center;
-    margin-top: 1em;
-    margin-bottom: 1em;
+    margin: 1em 0;
 
     & > :first-child {
-      margin-right: .5em;
+      margin-right: 1em;
     }
 
     & > .control {
+      display: flex;
+      justify-content: center;
+      align-items: center;
       padding: .33em .75em;
-      border: 1px solid lightgray;
-      border-radius: .25em;
+      @include border;
     }
   }
 }
 
 .summary {
-  border: 1px solid lightgray;
   min-height: 50px;
-  border-radius: .25em;
   padding: .5em;
+  @include border;
 }
 
 .wordbreak {
