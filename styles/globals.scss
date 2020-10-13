@@ -1,4 +1,3 @@
-@import url('https://fonts.googleapis.com/css2?family=Open+Sans&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Open+Sans&family=Roboto&display=swap');
 
 /* VARIABLES */
@@ -43,6 +42,10 @@ $rounded-values: (
     flex-direction: column;
     justify-content: center;
     align-items: center;
+}
+  
+body {
+  font-family: 'Roboto', sans-serif;
 }
 
 #__next {
