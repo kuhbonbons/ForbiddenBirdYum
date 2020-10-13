@@ -30,7 +30,7 @@ export default function Editor() {
     if (sections.length === 1) return;
 
     if (sectionId) {
-      setSections(sections.filter(section => section.id !== sectionId));
+      setSections(sections.filter((section) => section.id !== sectionId));
     } else {
       setSections(sections.slice(0, sections.length - 1));
     }
@@ -60,17 +60,14 @@ export default function Editor() {
     setSummary(e.currentTarget.innerHTML);
   };
 
-  // eslint-disable-next-line arrow-body-style
-  const renderSections = () => sections.map((section) => {
-    return (
-      <Section
-        key={section.id}
-        id={section.id}
-        handleInput={handleInput}
-        handleRemove={handleRemoveSection}
-      />
-    );
-  });
+  const renderSections = () => sections.map((section) => (
+    <Section
+      key={section.id}
+      id={section.id}
+      handleInput={handleInput}
+      handleRemove={handleRemoveSection}
+    />
+  ));
 
   return (
     <div className={styles.editor}>
@@ -80,8 +77,8 @@ export default function Editor() {
           <Heading name="description" placeholder="Note description" value={description} setValue={setDescription} />
         </div>
         <div className={styles.date}>
-          <span className="note-month">{ formatedDate[0] }</span>
-          <span className="note-day">{ formatedDate[1] }</span>
+          <span className={styles['note-month']}>{ formatedDate[0] }</span>
+          <span className={styles['note-day']}>{ formatedDate[1] }</span>
         </div>
       </header>
       <section className={styles.body}>
