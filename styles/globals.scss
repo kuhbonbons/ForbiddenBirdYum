@@ -1,5 +1,112 @@
-@use 'resets';
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans&family=Roboto&display=swap');
 
+/* VARIABLES */
+$white: #f8f8ff;
+$black: #242526;
+$spacing: 0.05em;
+
+$shadow-values: (
+  "none": none,
+  "sm": (0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24)),
+  "md": (0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23)),
+  "lg": (0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23)),
+  "xl": (0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22)),
+  "2xl":(0 19px 38px rgba(0,0,0,0.30), 0 15px 12px rgba(0,0,0,0.22))
+);
+
+$rounded-values: (
+    "none": 0px,
+    "sm": 2px,
+    "md": 5px,
+    "lg": 25px,
+    "full": 100%,
+);
+
+/* MIXINS */
+@mixin shadow($size) {
+    box-shadow: map-get($shadow-values, $size);
+}
+
+@mixin rounded($size) {
+    border-radius: map-get($rounded-values, $size);
+}
+
+@mixin flex-row-center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+@mixin flex-col-center {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+  
 body {
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: 'Roboto', sans-serif;
+}
+
+#__next {
+    font-family: 'Roboto', sans-serif;
+}
+
+.formik-error-text {
+    color: rgb(194, 0, 0);
+    font-size: 1rem;
+}
+
+.form {
+    @include shadow("md");
+    @include rounded("lg");
+    @include flex-col-center;
+    height: 550px;
+    max-width: 550px;
+    margin: 6.25rem auto;
+    padding: 1.25rem 0;
+    font-size: 1.25rem;
+
+    .form-title {
+        margin-bottom: 1.5rem;
+        letter-spacing: $spacing;
+    }
+    .form-items {
+        width: 70%;
+        letter-spacing: $spacing;
+        @include flex-col-center;
+    }
+
+    .form-inputs {
+        width: 100%;
+        height: 35px;
+        margin: 0.5rem 0;
+        font-size: 1.1rem;
+        text-align: center;
+        letter-spacing: $spacing;
+        border: 1px solid $black;
+        @include rounded("md");
+    }
+
+    .form-button {
+        width: 100%;
+        height: 35px;
+        background-color: $black;
+        color: $white;
+        font: {
+            size: 1.1rem;
+            weight: 800;
+        }
+        letter-spacing: $spacing;
+        margin-top: 1.25rem;
+        border-style: none;
+        @include rounded("md");
+        cursor: pointer;
+
+        &:disabled {
+        color: $white;
+        background-color: gray;
+        cursor: not-allowed;
+        }
+    }
 }
