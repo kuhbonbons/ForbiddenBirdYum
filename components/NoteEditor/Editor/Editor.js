@@ -30,8 +30,7 @@ export default function Editor() {
     if (sections.length === 1) return;
 
     if (sectionId) {
-      const index = sections.findIndex((section) => section.id === sectionId);
-      setSections([...sections.slice(0, index), ...sections.slice(index + 1, sections.length)]);
+      setSections(sections.filter(section => section.id !== sectionId));
     } else {
       setSections(sections.slice(0, sections.length - 1));
     }
