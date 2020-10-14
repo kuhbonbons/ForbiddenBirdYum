@@ -6,7 +6,7 @@
     background: rgb(41, 41, 41);
     animation: slide-right 0.3s ease-in-out both;
 }
-.sidebar-error {
+.sidebar-notfound {
     @include g.flex-row-center();
     margin-top: 2em;
     padding: 1em;
@@ -14,11 +14,9 @@
     align-items: center;
 }
 
-.sidebar-error-button {
-    background: rgb(41, 41, 41);
-    color: white;
-    border: none;
-    font-size: 1.5rem;
+.sidebar-notfound-link {
+    color: rgb(123, 123, 246);
+    text-decoration: none;
     cursor: pointer;
 }
 

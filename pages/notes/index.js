@@ -2,8 +2,8 @@ import { NoteViewer, withAuth } from '../../components';
 
 const { NEXT_PUBLIC_API_URL } = process.env;
 
-const Notes = withAuth(({ notes }) => (
-  <NoteViewer notes={notes} />
+const Notes = withAuth(({ notes, error }) => (
+  <NoteViewer notes={notes} error={error} />
 ));
 
 Notes.getInitialProps = async (ctx) => {
@@ -28,6 +28,7 @@ Notes.getInitialProps = async (ctx) => {
     console.log(error);
     return {
       notes: [],
+      error,
     };
   }
 };

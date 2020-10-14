@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import dynamic from 'next/dynamic';
+import Link from 'next/link';
 import styles from './NotesSidebar.module.scss';
 import { useGlobalState } from '../../store';
 
@@ -24,7 +25,6 @@ const NotesSidebar = ({ notes, setSelected, selectedId }) => {
           </div>
         </MediumAndDown>
       ) : (
-
         <div className={styles.sidebar}>
           <div className={styles['sidebar-header']}>
             <h3>{`${state.session?.username}'s Notes`}</h3>
@@ -52,11 +52,15 @@ const NotesSidebar = ({ notes, setSelected, selectedId }) => {
               </p>
             </div>
           )) : (
-            <div className={styles['sidebar-error']}>
-              <button onClick={() => window.location.reload()} className={styles['sidebar-error-button']} type="button">
-                <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" width="1em" height="1em" viewBox="0 0 24 24"><path d="M23 12c0 1.042-.154 2.045-.425 3h-2.101c.335-.94.526-1.947.526-3 0-4.962-4.037-9-9-9-1.706 0-3.296.484-4.655 1.314l1.858 2.686h-6.994l2.152-7 1.849 2.673c1.684-1.049 3.659-1.673 5.79-1.673 6.074 0 11 4.925 11 11zm-6.354 7.692c-1.357.826-2.944 1.308-4.646 1.308-4.962 0-9-4.038-9-9 0-1.053.191-2.06.525-3h-2.1c-.271.955-.425 1.958-.425 3 0 6.075 4.925 11 11 11 2.127 0 4.099-.621 5.78-1.667l1.853 2.667 2.152-6.989h-6.994l1.855 2.681z" /></svg>
-              </button>
-              <span> Error while loading Notes </span>
+            <div className={styles['sidebar-notfound']}>
+              <span>
+                {' '}
+                No notes found,
+                {' '}
+                <Link href="/notes/create" shallow><span className={styles['sidebar-notfound-link']}>create</span></Link>
+                {' '}
+                a note to view it.
+              </span>
             </div>
           )}
         </div>
