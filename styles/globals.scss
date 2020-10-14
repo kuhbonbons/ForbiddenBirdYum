@@ -1,5 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Open+Sans&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Open+Sans&family=Roboto&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter&display=swap');
 
 $shadow-values: (
   "none": none,
@@ -27,7 +28,7 @@ $rounded-values: (
 }
 
 #__next {
-    font-family: 'Roboto', sans-serif;;
+    font-family: 'Inter', sans-serif;
 }
 
 
