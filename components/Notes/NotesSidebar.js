@@ -15,7 +15,7 @@ const NotesSidebar = ({ notes, setSelected, selectedId }) => {
   };
   return (
     <>
-      {!open && (
+      {!open ? (
         <MediumAndDown callback={handleMediaChange}>
           <div className={styles['sidebar-toggle']}>
             <button className={styles['sidebar-toggle-button']} onClick={() => toggleOpen(!open)} type="button">
@@ -23,8 +23,7 @@ const NotesSidebar = ({ notes, setSelected, selectedId }) => {
             </button>
           </div>
         </MediumAndDown>
-      )}
-      {open && (
+      ) : (
 
         <div className={styles.sidebar}>
           <div className={styles['sidebar-header']}>
