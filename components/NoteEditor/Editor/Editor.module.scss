@@ -1,0 +1,190 @@
+/* VARIABLES */
+$border: 1px solid lightgray;
+$radius: .25em;
+
+/* MIXINS */
+@mixin border {
+  border: $border;
+  border-radius: $radius;
+}
+
+@mixin for-mobile {
+  @media only screen and (max-width: 576px) {
+    @content;
+  }
+}
+
+/* Only used for date span width */
+@mixin for-big-mobile {
+  @media only screen and (min-width: 456px) and (max-width: 576px) {
+    @content;
+  }
+}
+
+.editor {
+  padding: .5em;
+  max-width: 1140px;
+  margin: 0 auto;
+}
+
+.header {
+  display: grid;
+  grid-template-columns: .25fr 1fr .25fr;
+  grid-template-areas:
+    ". header date";
+  
+  .headings {
+    grid-area: header;
+    text-align: center;
+    position: relative;
+    
+    & > textarea {
+      width: 100%;
+      text-align: center;
+      padding: .25em;
+      resize: none;
+      overflow: hidden;
+      line-height: 1.2;
+      border: none;
+
+      &.title {
+        font-size: 2rem;
+        font-weight: bold;
+        @include for-mobile {
+          font-size: 1.6rem;
+          margin-top: .4em;
+        }
+      }
+
+      &.description {
+        font-size: 1.25rem;
+        @include for-mobile {
+          font-size: 1rem;
+        }
+      }
+    }
+  }
+}
+
+.date {
+  grid-area: date;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  @include for-mobile {
+    flex-direction: row;
+    align-items: flex-start;
+    justify-content: flex-end;
+  }
+  
+  & > span {
+    display: block;
+    width: 50%;
+    max-width: 80px;
+    padding: .25em;
+    border: $border;
+    @include for-mobile {
+      width: 44%;
+      border: none;
+    }
+    @include for-big-mobile {
+      width: 35%;
+      border: none;
+    }
+
+    &:first-of-type {
+      border-bottom: none;
+    }
+  }
+}
+
+.section {
+  display: grid;
+  grid-template-columns: minmax(100px, 250px) minmax(400px, 1fr);
+  position: relative;
+  margin-bottom: .5em;
+  @include for-mobile {
+    display: block;
+    margin-bottom: 1em;
+  }
+
+  & > .keyword,.content {
+    min-height: 50px;
+    padding: .5em;
+  }
+
+  .keyword {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    font-size: 1.2rem;
+    border-right: $border;
+    @include for-mobile {
+      border-bottom: $border;
+      border-right: none;
+    }
+  }
+
+  .content {
+    color: black;
+    @include for-mobile {
+      min-height: 100px;
+    }
+  }
+
+  .trashcan {
+    position: absolute;
+    bottom: 5px;
+    right: 5px;
+
+    & > button {
+      padding: .25em;
+      @include border;
+    }
+  }
+}
+
+.body {
+  margin-top: .75em;
+  @include for-mobile {
+    margin-top: .4em;
+  }
+
+  & > .section {
+    @include border;
+  }
+
+  .section-controls {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 1em 0;
+
+    & > :first-child {
+      margin-right: 1em;
+    }
+
+    & > .control {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: .33em .75em;
+      @include border;
+    }
+  }
+}
+
+.summary {
+  min-height: 50px;
+  padding: .5em;
+  @include border;
+}
+
+.wordbreak {
+  white-space: pre-wrap;
+  word-break: break-word;
+  overflow-wrap: break-word;
+}

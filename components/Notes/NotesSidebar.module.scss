@@ -7,13 +7,10 @@
     animation: slide-right 0.3s ease-in-out both;
 }
 .sidebar-error {
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    @include g.flex-row-center();
     margin-top: 2em;
     padding: 1em;
     color: white;
-    display: flex;
     align-items: center;
 }
 
@@ -48,8 +45,7 @@
 
 .sidebar-header {
     width: 100%;
-    display: flex;
-    justify-content: center;
+    @include g.flex-row-center();
     padding: .5em;
     background: rgb(19, 18, 18);
     color: white;
@@ -91,8 +87,7 @@
 }
 
 .sidebar-items-header {
-    display: flex;
-    align-items: center;
+    @include g.flex-row-center();
     justify-content: space-between;
 }
 
