@@ -1,113 +1,113 @@
 @use "../../styles/globals.scss" as g;
 .sidebar {
-    min-width: 400px;
-    max-width: 400px;
-    height: 100%;
-    background: rgb(41, 41, 41);
-    animation: slide-right 0.3s ease-in-out both;
+  min-width: 400px;
+  max-width: 400px;
+  height: 100%;
+  background: rgb(41, 41, 41);
+  animation: slide-right 0.3s ease-in-out both;
 }
 .sidebar-notfound {
-    @include g.flex-row-center();
-    margin-top: 2em;
-    padding: 1em;
-    color: white;
-    align-items: center;
+  @include g.flex-row-center();
+  margin-top: 2em;
+  padding: 1em;
+  color: white;
+  align-items: center;
 }
 
 .sidebar-notfound-link {
-    color: rgb(123, 123, 246);
-    text-decoration: none;
-    cursor: pointer;
+  color: rgb(123, 123, 246);
+  text-decoration: none;
+  cursor: pointer;
 }
 
 .sidebar-toggle {
-    height: 50px;
-    position: absolute;
-    margin: 1.5em;
-    right: 0;
+  height: 50px;
+  position: absolute;
+  margin: 1.5em;
+  right: 0;
 }
 
 .sidebar-toggle-button {
-    font-size: 2.5rem;
-    background: none;
-    border: none;
+  font-size: 2.5rem;
+  background: none;
+  border: none;
 }
 
 
 .sidebar-close-button {
-    background: none;
-    color: rgb(255, 88, 88);
-    border: none;
-    font-size: 1.5rem;
+  background: none;
+  color: rgb(255, 88, 88);
+  border: none;
+  font-size: 1.5rem;
 }
 
 .sidebar-header {
-    width: 100%;
-    @include g.flex-row-center();
-    padding: .5em;
-    background: rgb(19, 18, 18);
-    color: white;
-    h3 {
-        font-weight: 500;
-        text-transform: capitalize;
-    }
+  width: 100%;
+  @include g.flex-row-center();
+  padding: .5em;
+  background: rgb(19, 18, 18);
+  color: white;
+  h3 {
+    font-weight: 500;
+    text-transform: capitalize;
+  }
 }
 
 .sidebar-items {
-    background-color: white;
-    padding: 1em;
-    width: 100%;
-    transition: all .15s ease-in-out;
-    border: 1px solid rgb(221, 221, 221);
-    max-height: 200px;
-    cursor: pointer;
+  background-color: white;
+  padding: 1em;
+  width: 100%;
+  transition: all .15s ease-in-out;
+  border: 1px solid rgb(221, 221, 221);
+  max-height: 200px;
+  cursor: pointer;
 }
 .sidebar-items:focus {
-    outline: none;
+  outline: none;
 }
 
 .sidebar-items-selected {
-    @include g.shadow("sm");
-    @include g.rounded("md");
-    background-color: white;
-    border: 1px solid rgb(231, 231, 231);
-    border-right: 5px solid rgb(69, 147, 250);
-    transform: scale(1.04);
-    box-shadow: 0px 4px 4px 0px rgba(0,0,0,0.12);
+  @include g.shadow("sm");
+  @include g.rounded("md");
+  background-color: white;
+  border: 1px solid rgb(231, 231, 231);
+  border-right: 5px solid rgb(69, 147, 250);
+  transform: scale(1.04);
+  box-shadow: 0px 4px 4px 0px rgba(0,0,0,0.12);
 }
 
 .sidebar-items-title {
-    color: rgb(122, 122, 122);
+  color: rgb(122, 122, 122);
 }
 
 .sidebar-items-date {
-    font-size: 0.9rem;
+  font-size: 0.9rem;
 }
 
 .sidebar-items-header {
-    @include g.flex-row-center();
-    justify-content: space-between;
+  @include g.flex-row-center();
+  justify-content: space-between;
 }
 
 @media only screen and (max-width: 1263px) and (min-width: 600px) {
-    .sidebar-header {
-        justify-content: space-between;
-    }
+  .sidebar-header {
+    justify-content: space-between;
+  }
 }
 
 @media only screen and (max-width: 650px) {
-    .sidebar-header {
-        justify-content: space-between;
-    }
-    .sidebar-items-selected {
-        border-bottom: 5px solid rgb(69, 147, 250);
-    }
-    .sidebar {
-        position: fixed;
-        width: 100%;
-        max-width: 100%;
-        min-width: inherit;
-    }
+  .sidebar-header {
+    justify-content: space-between;
+  }
+  .sidebar-items-selected {
+    border-bottom: 5px solid rgb(69, 147, 250);
+  }
+  .sidebar {
+    position: fixed;
+    width: 100%;
+    max-width: 100%;
+    min-width: inherit;
+  }
 }
 
 @keyframes slide-right {

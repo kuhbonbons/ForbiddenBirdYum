@@ -4,14 +4,11 @@ import dynamic from 'next/dynamic';
 import shortid from 'shortid';
 import styles from './Editor.module.scss';
 import Heading from './Heading';
+import { formatDate } from '../../../utils/helpers';
 
 const Section = dynamic(() => import('./Section'), { ssr: false });
 
-function formatDate(dateObj) {
-  return new Intl.DateTimeFormat('en-US', { month: 'short', day: 'numeric' }).format(dateObj);
-}
-
-const formatedDate = formatDate(new Date()).split(' ');
+const formatedDate = formatDate(new Date(), { format: { month: 'short', day: 'numeric' } }).split(' ');
 
 export default function Editor() {
   const [title, setTitle] = useState('');

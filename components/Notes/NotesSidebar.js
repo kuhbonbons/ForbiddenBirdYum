@@ -3,10 +3,9 @@ import dynamic from 'next/dynamic';
 import Link from 'next/link';
 import styles from './NotesSidebar.module.scss';
 import { useGlobalState } from '../../store';
+import { formatDate } from '../../utils/helpers';
 
 const MediumAndDown = dynamic(import('../Utils/Queries').then((mod) => mod.MediumAndDown), { ssr: false });
-
-const formatDate = (date) => new Intl.DateTimeFormat('en-US', { month: 'short', day: 'numeric', year: 'numeric' }).format(new Date(date));
 
 const NotesSidebar = ({ notes, setSelected, selectedId }) => {
   const { state } = useGlobalState();
@@ -45,7 +44,11 @@ const NotesSidebar = ({ notes, setSelected, selectedId }) => {
             >
               <div className={styles['sidebar-items-header']}>
                 <h4 className={styles['sidebar-items-title']}>{note.title}</h4>
-                <span className={styles['sidebar-items-date']}>{formatDate(note.createdAt)}</span>
+                <span className={styles['sidebar-items-date']}>
+                  {formatDate(new Date(note.createdAt), {
+                    format: { month: 'short', day: 'numeric', year: 'numeric' },
+                  })}
+                </span>
               </div>
               <p className={styles['sidebar-items-description']}>
                 {note.description || 'No description provided...'}
