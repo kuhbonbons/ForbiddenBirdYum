@@ -15,8 +15,7 @@ const withAuth = (ProtectedComponent) => class extends Component {
       redirect(ctx.res, 'http://localhost:3000/login');
     }
     const pageProps = ProtectedComponent.getInitialProps
-     && await ProtectedComponent.getInitialProps(ctx);
-
+    && await ProtectedComponent.getInitialProps(ctx);
     return { ...pageProps };
   }
 

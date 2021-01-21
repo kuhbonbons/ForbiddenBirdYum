@@ -1,8 +1,7 @@
 import Head from 'next/head';
-import { NoteEditor } from '../components';
-import withAuth from '../components/Utils/auth';
+import { NoteEditor, withAuth } from '../../components';
 
-const Notes = withAuth(() => (
+const Create = withAuth(() => (
   <div>
     <Head>
       <meta charSet="UTF-8" />
@@ -13,4 +12,4 @@ const Notes = withAuth(() => (
   </div>
 ));
 
-export default Notes;
+export default Create;

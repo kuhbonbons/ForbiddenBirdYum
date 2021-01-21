@@ -1,0 +1,10 @@
+@use "../../styles/globals.scss" as g;
+
+.servererror {
+  @include g.flex-row-center();
+  margin-top: 10em;
+  width: 100%;
+  font-size: 1.5rem;
+  height: 1em;
+  font-weight: 700;
+}

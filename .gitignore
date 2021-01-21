@@ -8,6 +8,8 @@
 # testing
 /coverage
 
+.editorconfig
+
 # next.js
 /.next/
 /out/

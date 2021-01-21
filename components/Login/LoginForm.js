@@ -4,7 +4,7 @@ import {
 import fetch from 'isomorphic-fetch';
 import { useState } from 'react';
 import Alert from '../Misc/Alert';
-import { LoginSchema } from '../../schemas';
+import { LoginSchema } from '../../utils/schemas';
 
 const { NEXT_PUBLIC_API_URL } = process.env;
 
